@@ -359,3 +359,30 @@ function getActivities(req, res, callback) {
 			}
 		});
 }
+
+
+exports.getRecentAssignments = function (req,res){
+
+		dashboard_utils.getAllAssignments(req,res,function(allAssignmentsObject){
+				allAssignments=allAssignmentsObject.assignments;
+		var data = '';
+		for (var i = 0; i < allAssignments.length; i++) {
+
+			var url = '/dashboard/journal/' + allAssignments[i].private_journal + '?uid=' + allAssignments[i]._id + '&type=private';
+			data += '<tr onclick="window.document.location=\'' + url + '\'">\
+									<td>' + (i + 1) + '</td>\
+									<td><div class="color" id="' + allAssignments[i]._id + i.toString() + '"><div class="xo-icon"></div></div></td>\
+									<script>new icon().load("/public/img/owner-icon.svg", ' + JSON.stringify(allAssignments[i].color) + ', "' + allAssignments[i]._id + i.toString() + '")</script>\
+									<td title="' + allAssignments[i].name + '">' + allAssignments[i].name + '</td>\
+									<td class="text-muted">' + moment(allAssignments[i].timestamp).calendar(); + '</td>\
+							</tr>';
+		}
+
+		return res.json({
+			data: data,
+			element: req.query.element,
+			graph: 'table'
+		});
+		})
+
+}
