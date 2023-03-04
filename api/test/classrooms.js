@@ -84,7 +84,7 @@ describe('Classrooms', function() {
 
 		it('it should add a classroom', (done) => {
 			chai.request(server)
-				.post('/api/v1/classrooms/')
+				.post('/api/v1/classoms/')
 				.set('x-access-token', fake.admin.token)
 				.set('x-key', fake.admin.user._id)
 				.send({
