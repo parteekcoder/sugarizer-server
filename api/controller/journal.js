@@ -8,6 +8,7 @@ var common = require('../controller/utils/common');
 
 var db;
 
+
 var journalCollection;
 
 var shared = null;
