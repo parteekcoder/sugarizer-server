@@ -91,9 +91,6 @@ module.exports = function (app, ini, db) {
 	app.put("/api/v1/charts/:chartid", auth.allowedRoles([Admin]), charts.updateChart);
 	app.delete("/api/v1/charts/:chartid", auth.allowedRoles([Admin]), charts.removeChart);
 
-	//some dummy chanegs;
-	var a=0;
-	console.log(a);
 	// If no route is matched by now, it must be a 404
 	app.use('/api/v1/*', function (req, res) {
 		return res.status(404).json({
