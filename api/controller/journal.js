@@ -6,9 +6,6 @@ var mongo = require('mongodb'),
 	path = require('path');
 var common = require('../controller/utils/common');
 
-var db;
-
-
 var journalCollection;
 
 var shared = null;
