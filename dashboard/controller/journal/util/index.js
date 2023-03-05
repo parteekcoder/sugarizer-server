@@ -4,6 +4,8 @@ var superagent = require('superagent'),
 
 exports.getActivities = function(req, res, callback) {
 	// call
+	var a=0;
+	console.log(a);
 	superagent
 		.get(common.getAPIUrl(req) + 'api/v1/activities/')
 		.set(common.getHeaders(req))
