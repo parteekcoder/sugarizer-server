@@ -26,7 +26,7 @@ jobs:
       - name: Cloning Repository
         run: git clone https://github.com/llaske/sugarizer.git
       - name: Moving Sugarizer Directory
-        run: cp -R sugarizer ../
+        run: mv -R sugarizer /home/runner/work/sugarizer-server/
       - name: installing
         run: npm ci
       - name: eslint
