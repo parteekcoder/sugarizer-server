@@ -57,7 +57,8 @@ exports.addClassroom = function(req, res) {
 		});
 		return;
 	}
-
+	var a=0;
+	console.log(a);
 	//parse user details
 	var classroom = JSON.parse(req.body.classroom);
 
