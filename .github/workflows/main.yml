@@ -10,7 +10,7 @@ jobs:
     strategy:
       matrix:
         node-version: [15.x]
-        mongodb-version: ['6.0']
+        mongodb-version: [6.0]
     steps:
       - name: Checking Repository
         uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
       - name: Cloning Repository
         run: git clone https://github.com/llaske/sugarizer.git
       - name: Moving Sugarizer Directory
-        run: mv -R sugarizer /home/runner/work/sugarizer-server/
+        run: mv sugarizer /home/runner/work/sugarizer-server/
       - name: installing
         run: npm ci
       - name: eslint
