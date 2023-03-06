@@ -27,8 +27,10 @@ jobs:
         run: git clone https://github.com/llaske/sugarizer.git
       - name: Moving Sugarizer Directory
         run: cp -R sugarizer ../
+      - name: installing
+        run: npm ci
+      - name: eslint
+        run: npm run lint
       - name: Unit testing
-        run: |
-          npm ci
-          npm run test
+        run: npm run test
           
