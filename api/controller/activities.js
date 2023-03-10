@@ -11,6 +11,8 @@ var activitiesCollection;
 exports.load = function(settings, database) {
 
 	// Get settings
+	let a =0;
+	console.log(a);
 	var activitiesFromDir = [];
 	db = database;
 	activitiesCollection = settings.collections.activities;
