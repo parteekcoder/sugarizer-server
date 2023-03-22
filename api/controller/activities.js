@@ -8,12 +8,10 @@ var db;
 var activitiesCollection;
 
 // Load into memory the content of activities directory
-var settingsData;
 exports.load = function(settings, database) {
 
 	// Get settings
 	var activitiesFromDir = [];
-	settingsData = settings;
 	db = database;
 	activitiesCollection = settings.collections.activities;
 	var activitiesDirName = settings.activities.activities_directory_name;
@@ -51,7 +49,7 @@ exports.load = function(settings, database) {
 				// Store activities
 				storeActivities(merged);
 			});
-		}
+		};
 		files.forEach(function(file) {
 			// If it's not the template directory
 			if (file != templateDirName) {
@@ -231,7 +229,7 @@ exports.findById = function(req, res) {
 			}
 		}
 		res.send();
-	})
+	});
 };
 
 // Store activities in database
@@ -245,7 +243,7 @@ function storeActivities(activitiesList) {
 			{
 				upsert: true
 			},
-			function(err, result) {
+			function(err) {
 				if (err) {
 					console.log(err);
 					return;
@@ -263,7 +261,7 @@ function loadActivities(callback) {
 			function(err, activities) {
 				if (err) {
 					console.log(err);
-					callback(null)
+					callback(null);
 					return;
 				}
 				callback(activities?activities.activities:null);
