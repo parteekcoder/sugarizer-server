@@ -247,7 +247,7 @@ exports.findAll = function(req, res) {
 						}
 					}
 
-					//return
+							//return
 					res.send(items);
 				});
 			});
